@@ -5,8 +5,8 @@ import MemberListItem from './member_list_item';
 const MemberList = (props) => {
   const data = props.data;
   var keyNum = 0;
-  const allList = data.map((value) => {
-    return <MemberListItem key = {keyNum ++ } data={value}/>
+  const allList = data.map((value, index) => {
+    return <MemberListItem key = {keyNum ++ } num = {index+1} data={value}/>
   })
 
   return (
