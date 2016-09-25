@@ -1,43 +1,40 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import YTSearch from 'youtube-api-search';
-import SearchBar from './components/search_bar';
-import VideoList from './components/video_list';
-import VideoDetail from './components/video_detail';
-const API_KEY = 'AIzaSyAuQCVeNfKhtRk9KlChQPT1nO27DPO_5Ss';
+import $ from 'jquery';
+import BoardTitle from './components/board_title.js';
+import MemberList from './components/member_list.js';
+
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      videos: [],
-      selectedVideo: null
+      data: [],
+      allTimeData: []
     };
 
-    this.videoSearch('surfboards');
+    this.getData();
+    this.getAllData();
   }
 
-  videoSearch(term) {
-    YTSearch({key: API_KEY, term: term}, (videos) => {
-      this.setState({
-        videos: videos,
-        selectedVideo: videos[0]
-      });
-    });
+  getData(){
+    $.get('https://fcctop100.herokuapp.com/api/fccusers/top/recent', (result) => {
+      this.setState({data: result});
+    })
+  }
+
+  getAllData(){
+    $.get('https://fcctop100.herokuapp.com/api/fccusers/top/alltime', (result) => {
+      this.setState({allTimeData: result});
+    })
   }
 
   render() {
-    const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
-
     return (
       <div>
-        <SearchBar onSearchTermChange={videoSearch} />
-        <VideoDetail video={this.state.selectedVideo} />
-        <VideoList
-          onVideoSelect={selectedVideo => this.setState({selectedVideo}) }
-          videos={this.state.videos} />
+        <BoardTitle />
+        <MemberList data={this.state.data}/>
       </div>
     );
   }
