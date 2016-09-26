@@ -33,3 +33,11 @@
 .name span{
   border: 0;
 }
+
+.recent, .all-time{
+  cursor: pointer;
+}
+
+a {
+    display: flex;
+}

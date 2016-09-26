@@ -7,7 +7,7 @@ const MemberListItem = (props) => {
   return (
     <li className = "row">
       <span className = "col-md-1 num">{num}</span>
-      <span className = "col-md-5 name"><img className="avatar" src={data.img} />{data.username}</span>
+      <span className = "col-md-5 name"><a href={"https://www.freecodecamp.com/"+props.username} target="_blank"><img className="avatar" src={data.img} />{data.username}</a></span>
       <span className = "col-md-4 points">{data.recent}</span>
       <span className = "col-md-2 all-time-points">{data.alltime}</span>
     </li>

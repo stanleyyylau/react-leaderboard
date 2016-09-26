@@ -26,7 +26,7 @@ class App extends Component {
 
   getAllData(){
     $.get('https://fcctop100.herokuapp.com/api/fccusers/top/alltime', (result) => {
-      this.setState({allTimeData: result});
+      this.setState({data: result});
     })
   }
 
@@ -34,7 +34,7 @@ class App extends Component {
     return (
       <div>
         <BoardTitle />
-        <MemberList data={this.state.data}/>
+        <MemberList data={this.state.data} getData={ () => this.getData()} getAllData={ () => this.getAllData()}/>
       </div>
     );
   }

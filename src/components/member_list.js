@@ -20,7 +20,7 @@ const MemberList = (props) => {
 
   return (
     <ul className = "member-list">
-      <MemberListHeader />
+      <MemberListHeader getData={props.getData} getAllData={props.getAllData}/>
       {allList}
     </ul>
   );
