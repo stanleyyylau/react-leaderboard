@@ -3,7 +3,7 @@
 ## How to run
 + Download this repo to your local computer
 + Run ``npm install`` to install all dependencies
-+ Run ``webpack`` to start the build process
++ Run ``npm start`` to start the build process
 + Open ``localhost:8080`` on your browser
 
 ## Bugs and improvement
