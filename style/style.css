@@ -28,6 +28,7 @@
 
 .avatar {
     height: 40px;
+    margin-right: 5px;
 }
 
 .name span{
@@ -40,4 +41,5 @@
 
 a {
     display: flex;
+    align-items: center;
 }
